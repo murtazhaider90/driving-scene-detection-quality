@@ -5,11 +5,6 @@ imagery, mines failure cases across lighting / weather / occlusion / object
 size, and produces dataset curation and model debugging insights. Comes with
 a CLI, an HTML/Markdown reporter, and a Streamlit dashboard.
 
-> **One-line pitch (CV-ready):**
-> Built a Python pipeline to evaluate object detection models on driving-scene
-> data and identify failure cases across conditions including lighting,
-> weather, and occlusion. Developed tools for performance tracking and
-> dataset curation, improving model debugging and retraining insights.
 
 ---
 
