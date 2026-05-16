@@ -1,0 +1,115 @@
+{
+  "class_balance": {
+    "total_instances": 33,
+    "by_class": [
+      {
+        "class": "car",
+        "instances": 14,
+        "share": 0.42424242424242425,
+        "underrepresented": true
+      },
+      {
+        "class": "pedestrian",
+        "instances": 10,
+        "share": 0.30303030303030304,
+        "underrepresented": true
+      },
+      {
+        "class": "traffic_light",
+        "instances": 3,
+        "share": 0.09090909090909091,
+        "underrepresented": true
+      },
+      {
+        "class": "bicycle",
+        "instances": 3,
+        "share": 0.09090909090909091,
+        "underrepresented": true
+      },
+      {
+        "class": "truck",
+        "instances": 3,
+        "share": 0.09090909090909091,
+        "underrepresented": true
+      }
+    ],
+    "underrepresented_classes": [
+      "car",
+      "pedestrian",
+      "traffic_light",
+      "bicycle",
+      "truck"
+    ]
+  },
+  "condition_balance": {
+    "lighting": {
+      "total_images": 10,
+      "values": [
+        {
+          "value": "day",
+          "count": 7,
+          "share": 0.7,
+          "underrepresented": false
+        },
+        {
+          "value": "night",
+          "count": 3,
+          "share": 0.3,
+          "underrepresented": false
+        }
+      ],
+      "underrepresented": []
+    },
+    "weather": {
+      "total_images": 10,
+      "values": [
+        {
+          "value": "clear",
+          "count": 7,
+          "share": 0.7,
+          "underrepresented": false
+        },
+        {
+          "value": "rain",
+          "count": 2,
+          "share": 0.2,
+          "underrepresented": false
+        },
+        {
+          "value": "fog",
+          "count": 1,
+          "share": 0.1,
+          "underrepresented": false
+        }
+      ],
+      "underrepresented": []
+    },
+    "occlusion": {
+      "total_images": 10,
+      "values": [
+        {
+          "value": "low",
+          "count": 5,
+          "share": 0.5,
+          "underrepresented": false
+        },
+        {
+          "value": "medium",
+          "count": 3,
+          "share": 0.3,
+          "underrepresented": false
+        },
+        {
+          "value": "high",
+          "count": 2,
+          "share": 0.2,
+          "underrepresented": false
+        }
+      ],
+      "underrepresented": []
+    }
+  },
+  "empty_annotation_images": [],
+  "suspicious_annotations": [],
+  "near_duplicates": []
+}

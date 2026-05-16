@@ -1,0 +1,49 @@
+# =====================================================================
+# Default configuration for the AD Data Quality & Failure Analysis tool
+# =====================================================================
+# All values here can be overridden from the CLI. Keep this file under
+# source control; create per-experiment overrides as separate YAMLs.
+
+evaluation:
+  # IoU threshold used to declare a prediction a true positive.
+  iou_threshold: 0.5
+  # Confidence threshold below which predictions are discarded before matching.
+  confidence_threshold: 0.25
+  # IoU thresholds swept for mAP-style reporting (COCO uses 0.5:0.05:0.95).
+  map_iou_thresholds: [0.5, 0.55, 0.6, 0.65, 0.7, 0.75, 0.8, 0.85, 0.9, 0.95]
+  # Classes considered safety-critical for driving. Reported separately.
+  critical_classes: ["person", "pedestrian", "bicycle", "cyclist", "motorcycle"]
+
+# Object size buckets, in pixels^2. Matches the COCO convention.
+object_sizes:
+  small_max: 1024      # < 32 x 32
+  medium_max: 9216     # < 96 x 96
+  # everything larger is "large"
+
+failure_analysis:
+  # An image is flagged as a "failure case" if it has at least this many
+  # false negatives or false positives.
+  fn_threshold: 2
+  fp_threshold: 2
+  # Confidence cutoffs for the "interesting prediction" mining.
+  low_confidence_correct: 0.4   # TP with conf < this is interesting
+  high_confidence_wrong: 0.7    # FP with conf > this is interesting
+  # How many of the worst images to keep per failure category.
+  top_k_failures: 20
+
+curation:
+  # Class is "underrepresented" if it has fewer than this many GT boxes.
+  min_instances_per_class: 50
+  # A condition (e.g. "night") is underrepresented if it covers < this share.
+  min_share_per_condition: 0.10
+  # Near-duplicate detection: dHash hamming distance threshold (0-64).
+  duplicate_hash_threshold: 5
+  # Suspicious box flags (degenerate geometry).
+  min_box_area: 4
+  max_aspect_ratio: 25.0
+
+report:
+  # Title shown in the rendered HTML report.
+  title: "Autonomous Driving Model Evaluation Report"
+  # Number of failure thumbnails embedded in the report per category.
+  failures_in_report: 8

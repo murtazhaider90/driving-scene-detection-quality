@@ -1,0 +1,31 @@
+# Core data / numerics
+numpy>=1.24
+pandas>=2.0
+scipy>=1.10
+
+# Computer vision
+opencv-python>=4.8
+Pillow>=10.0
+
+# Configuration
+PyYAML>=6.0
+
+# Visualization
+matplotlib>=3.7
+seaborn>=0.12
+plotly>=5.17
+
+# Dashboard
+streamlit>=1.28
+
+# Reporting
+jinja2>=3.1
+
+# Testing
+pytest>=7.4
+
+# Optional: install only if you want to run real detections on images.
+# Pipeline works without these because it consumes a predictions.json file.
+# ultralytics>=8.0
+# torch>=2.0
+# pycocotools>=2.0

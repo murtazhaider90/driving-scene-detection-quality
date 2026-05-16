@@ -1,0 +1,85 @@
+[
+  {
+    "image_id": "frame_001.jpg",
+    "boxes": [
+      {"class": "car",        "bbox": [100, 120, 80, 60],  "occluded": false},
+      {"class": "car",        "bbox": [220, 130, 90, 70],  "occluded": false},
+      {"class": "pedestrian", "bbox": [400, 200, 25, 70],  "occluded": false},
+      {"class": "traffic_light","bbox": [500, 40, 18, 40], "occluded": false}
+    ]
+  },
+  {
+    "image_id": "frame_002.jpg",
+    "boxes": [
+      {"class": "car",        "bbox": [60, 150, 110, 80],  "occluded": false},
+      {"class": "bicycle",    "bbox": [350, 220, 60, 80],  "occluded": true},
+      {"class": "pedestrian", "bbox": [420, 210, 28, 75],  "occluded": true}
+    ]
+  },
+  {
+    "image_id": "frame_003.jpg",
+    "boxes": [
+      {"class": "car",        "bbox": [200, 180, 100, 70], "occluded": false},
+      {"class": "truck",      "bbox": [330, 140, 150, 130],"occluded": false},
+      {"class": "pedestrian", "bbox": [480, 220, 22, 60],  "occluded": false},
+      {"class": "pedestrian", "bbox": [510, 222, 20, 58],  "occluded": true}
+    ]
+  },
+  {
+    "image_id": "frame_004.jpg",
+    "boxes": [
+      {"class": "car",        "bbox": [120, 160, 95, 70],  "occluded": false},
+      {"class": "car",        "bbox": [260, 170, 85, 65],  "occluded": true},
+      {"class": "traffic_light","bbox": [480, 30, 16, 36], "occluded": false}
+    ]
+  },
+  {
+    "image_id": "frame_005.jpg",
+    "boxes": [
+      {"class": "pedestrian", "bbox": [180, 210, 26, 75],  "occluded": false},
+      {"class": "pedestrian", "bbox": [220, 215, 24, 72],  "occluded": false},
+      {"class": "bicycle",    "bbox": [380, 230, 55, 70],  "occluded": false},
+      {"class": "car",        "bbox": [450, 180, 100, 70], "occluded": false}
+    ]
+  },
+  {
+    "image_id": "frame_006.jpg",
+    "boxes": [
+      {"class": "car",        "bbox": [100, 170, 110, 80], "occluded": false},
+      {"class": "car",        "bbox": [260, 175, 95, 70],  "occluded": false},
+      {"class": "truck",      "bbox": [400, 130, 160, 140],"occluded": false}
+    ]
+  },
+  {
+    "image_id": "frame_007.jpg",
+    "boxes": [
+      {"class": "pedestrian", "bbox": [150, 220, 26, 78],  "occluded": true},
+      {"class": "pedestrian", "bbox": [200, 225, 24, 76],  "occluded": true},
+      {"class": "car",        "bbox": [400, 180, 100, 70], "occluded": false}
+    ]
+  },
+  {
+    "image_id": "frame_008.jpg",
+    "boxes": [
+      {"class": "car",        "bbox": [120, 170, 100, 75], "occluded": false},
+      {"class": "bicycle",    "bbox": [320, 215, 58, 78],  "occluded": false},
+      {"class": "traffic_light","bbox": [490, 35, 18, 38], "occluded": false}
+    ]
+  },
+  {
+    "image_id": "frame_009.jpg",
+    "boxes": [
+      {"class": "car",        "bbox": [80, 160, 105, 75],  "occluded": false},
+      {"class": "car",        "bbox": [240, 170, 95, 70],  "occluded": true},
+      {"class": "pedestrian", "bbox": [420, 215, 25, 72],  "occluded": false}
+    ]
+  },
+  {
+    "image_id": "frame_010.jpg",
+    "boxes": [
+      {"class": "truck",      "bbox": [200, 120, 180, 150],"occluded": false},
+      {"class": "car",        "bbox": [430, 180, 100, 70], "occluded": false},
+      {"class": "pedestrian", "bbox": [560, 220, 24, 70],  "occluded": false}
+    ]
+  }
+]

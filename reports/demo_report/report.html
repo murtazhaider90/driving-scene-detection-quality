@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Autonomous Driving Model Evaluation Report</title>
+<style>
+  body { font-family: -apple-system, system-ui, sans-serif; max-width: 1100px;
+         margin: 2em auto; padding: 0 1.5em; color: #222; }
+  h1, h2, h3 { color: #1f2937; }
+  h1 { border-bottom: 2px solid #e5e7eb; padding-bottom: 0.3em; }
+  h2 { margin-top: 2em; }
+  .kpi-grid { display: grid; grid-template-columns: repeat(4, 1fr);
+              gap: 1em; margin: 1em 0; }
+  .kpi { background: #f3f4f6; border-radius: 8px; padding: 1em;
+         text-align: center; }
+  .kpi .value { font-size: 1.8em; font-weight: 600; color: #1d4ed8; }
+  .kpi .label { font-size: 0.85em; color: #6b7280; margin-top: 0.3em; }
+  table { border-collapse: collapse; width: 100%; margin: 1em 0;
+          font-size: 0.9em; }
+  th, td { border: 1px solid #e5e7eb; padding: 0.45em 0.7em; text-align: left; }
+  th { background: #f9fafb; }
+  tr:nth-child(even) td { background: #fafafa; }
+  img { max-width: 100%; border: 1px solid #e5e7eb; border-radius: 6px;
+        margin: 0.5em 0; }
+  .failure-grid { display: grid;
+                  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+                  gap: 1em; }
+  .failure-card { background: #fafafa; padding: 0.7em; border-radius: 6px;
+                  border: 1px solid #e5e7eb; }
+  .failure-card .meta { font-size: 0.8em; color: #6b7280; }
+  .rec { background: #fef3c7; border-left: 4px solid #f59e0b;
+         padding: 0.6em 1em; margin: 0.5em 0; border-radius: 4px; }
+  .small { font-size: 0.85em; color: #6b7280; }
+  code { background: #f3f4f6; padding: 0.1em 0.4em; border-radius: 4px; }
+</style>
+</head>
+<body>
+<h1>Autonomous Driving Model Evaluation Report</h1>
+<p class="small">Generated 2026-05-16 01:17:02 &middot; IoU threshold 0.5
+&middot; confidence threshold 0.25</p>
+
+<h2>Summary</h2>
+<div class="kpi-grid">
+  <div class="kpi"><div class="value">0.897</div>
+                   <div class="label">Precision</div></div>
+  <div class="kpi"><div class="value">0.788</div>
+                   <div class="label">Recall</div></div>
+  <div class="kpi"><div class="value">0.839</div>
+                   <div class="label">F1</div></div>
+  <div class="kpi"><div class="value">0.858</div>
+                   <div class="label">mAP@0.5</div></div>
+  <div class="kpi"><div class="value">26</div>
+                   <div class="label">True positives</div></div>
+  <div class="kpi"><div class="value">3</div>
+                   <div class="label">False positives</div></div>
+  <div class="kpi"><div class="value">7</div>
+                   <div class="label">False negatives</div></div>
+  <div class="kpi"><div class="value">10</div>
+                   <div class="label">Images evaluated</div></div>
+</div>
+
+<h2>Per-class performance</h2>
+<img src="plots/class_metrics.png" alt="Per-class metrics">
+<table class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>class</th>
+      <th>support</th>
+      <th>tp</th>
+      <th>fp</th>
+      <th>fn</th>
+      <th>precision</th>
+      <th>recall</th>
+      <th>f1</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>bicycle</td>
+      <td>3</td>
+      <td>3</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1.000</td>
+      <td>1.000</td>
+      <td>1.000</td>
+    </tr>
+    <tr>
+      <td>car</td>
+      <td>14</td>
+      <td>13</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0.929</td>
+      <td>0.929</td>
+      <td>0.929</td>
+    </tr>
+    <tr>
+      <td>pedestrian</td>
+      <td>10</td>
+      <td>4</td>
+      <td>2</td>
+      <td>6</td>
+      <td>0.667</td>
+      <td>0.400</td>
+      <td>0.500</td>
+    </tr>
+    <tr>
+      <td>traffic_light</td>
+      <td>3</td>
+      <td>3</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1.000</td>
+      <td>1.000</td>
+      <td>1.000</td>
+    </tr>
+    <tr>
+      <td>truck</td>
+      <td>3</td>
+      <td>3</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1.000</td>
+      <td>1.000</td>
+      <td>1.000</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2>Confusion matrix</h2>
+<img src="plots/confusion_matrix.png" alt="Confusion matrix">
+
+<h2>Performance by condition</h2>
+<img src="plots/condition_metrics.png" alt="Condition metrics">
+
+  <h3>Lighting</h3>
+  <table class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>lighting</th>
+      <th>support</th>
+      <th>tp</th>
+      <th>fp</th>
+      <th>fn</th>
+      <th>precision</th>
+      <th>recall</th>
+      <th>f1</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>day</td>
+      <td>24</td>
+      <td>21</td>
+      <td>2</td>
+      <td>3</td>
+      <td>0.913</td>
+      <td>0.875</td>
+      <td>0.894</td>
+    </tr>
+    <tr>
+      <td>night</td>
+      <td>9</td>
+      <td>5</td>
+      <td>1</td>
+      <td>4</td>
+      <td>0.833</td>
+      <td>0.556</td>
+      <td>0.667</td>
+    </tr>
+  </tbody>
+</table>
+
+  <h3>Weather</h3>
+  <table class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>weather</th>
+      <th>support</th>
+      <th>tp</th>
+      <th>fp</th>
+      <th>fn</th>
+      <th>precision</th>
+      <th>recall</th>
+      <th>f1</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>clear</td>
+      <td>24</td>
+      <td>22</td>
+      <td>3</td>
+      <td>2</td>
+      <td>0.88</td>
+      <td>0.917</td>
+      <td>0.898</td>
+    </tr>
+    <tr>
+      <td>fog</td>
+      <td>3</td>
+      <td>1</td>
+      <td>0</td>
+      <td>2</td>
+      <td>1.00</td>
+      <td>0.333</td>
+      <td>0.500</td>
+    </tr>
+    <tr>
+      <td>rain</td>
+      <td>6</td>
+      <td>3</td>
+      <td>0</td>
+      <td>3</td>
+      <td>1.00</td>
+      <td>0.500</td>
+      <td>0.667</td>
+    </tr>
+  </tbody>
+</table>
+
+  <h3>Occlusion</h3>
+  <table class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>occlusion</th>
+      <th>support</th>
+      <th>tp</th>
+      <th>fp</th>
+      <th>fn</th>
+      <th>precision</th>
+      <th>recall</th>
+      <th>f1</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>high</td>
+      <td>6</td>
+      <td>3</td>
+      <td>0</td>
+      <td>3</td>
+      <td>1.000</td>
+      <td>0.500</td>
+      <td>0.667</td>
+    </tr>
+    <tr>
+      <td>low</td>
+      <td>17</td>
+      <td>16</td>
+      <td>2</td>
+      <td>1</td>
+      <td>0.889</td>
+      <td>0.941</td>
+      <td>0.914</td>
+    </tr>
+    <tr>
+      <td>medium</td>
+      <td>10</td>
+      <td>7</td>
+      <td>1</td>
+      <td>3</td>
+      <td>0.875</td>
+      <td>0.700</td>
+      <td>0.778</td>
+    </tr>
+  </tbody>
+</table>
+
+
+<h2>Performance by object size</h2>
+<table class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>size_bucket</th>
+      <th>support</th>
+      <th>tp</th>
+      <th>fp</th>
+      <th>fn</th>
+      <th>precision</th>
+      <th>recall</th>
+      <th>f1</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>small</td>
+      <td>3</td>
+      <td>3</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1.00</td>
+      <td>1.000</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <td>medium</td>
+      <td>27</td>
+      <td>20</td>
+      <td>3</td>
+      <td>7</td>
+      <td>0.87</td>
+      <td>0.741</td>
+      <td>0.8</td>
+    </tr>
+    <tr>
+      <td>large</td>
+      <td>3</td>
+      <td>3</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1.00</td>
+      <td>1.000</td>
+      <td>1.0</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2>Precision-Recall curves</h2>
+<img src="plots/pr_curves.png" alt="PR curves">
+
+<h2>Confidence distribution</h2>
+<img src="plots/confidence_histogram.png" alt="Confidence histogram">
+
+<h2>Worst failure images</h2>
+<p class="small">Top images by combined false positives + false negatives.</p>
+<div class="failure-grid">
+
+  <div class="failure-card">
+    
+    <div><b>frame_007.jpg</b></div>
+    <div class="meta">FN=2 &middot; FP=0 &middot; TP=1</div>
+    <div class="meta">night &middot; fog &middot;
+                       occlusion=high</div>
+  </div>
+
+  <div class="failure-card">
+    
+    <div><b>frame_009.jpg</b></div>
+    <div class="meta">FN=2 &middot; FP=0 &middot; TP=1</div>
+    <div class="meta">night &middot; rain &middot;
+                       occlusion=medium</div>
+  </div>
+
+</div>
+
+<h2>Dataset curation findings</h2>
+<h3>Class balance</h3>
+<table class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>class</th>
+      <th>instances</th>
+      <th>share</th>
+      <th>underrepresented</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>car</td>
+      <td>14</td>
+      <td>0.424</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <td>pedestrian</td>
+      <td>10</td>
+      <td>0.303</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <td>traffic_light</td>
+      <td>3</td>
+      <td>0.091</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <td>bicycle</td>
+      <td>3</td>
+      <td>0.091</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <td>truck</td>
+      <td>3</td>
+      <td>0.091</td>
+      <td>True</td>
+    </tr>
+  </tbody>
+</table>
+
+  <p><b>Underrepresented classes:</b> car, pedestrian, traffic_light, bicycle, truck</p>
+
+
+<h3>Condition balance</h3>
+
+  <h4>Lighting</h4>
+  <table class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>value</th>
+      <th>count</th>
+      <th>share</th>
+      <th>underrepresented</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>day</td>
+      <td>7</td>
+      <td>0.7</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <td>night</td>
+      <td>3</td>
+      <td>0.3</td>
+      <td>False</td>
+    </tr>
+  </tbody>
+</table>
+
+  <h4>Weather</h4>
+  <table class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>value</th>
+      <th>count</th>
+      <th>share</th>
+      <th>underrepresented</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>clear</td>
+      <td>7</td>
+      <td>0.7</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <td>rain</td>
+      <td>2</td>
+      <td>0.2</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <td>fog</td>
+      <td>1</td>
+      <td>0.1</td>
+      <td>False</td>
+    </tr>
+  </tbody>
+</table>
+
+  <h4>Occlusion</h4>
+  <table class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>value</th>
+      <th>count</th>
+      <th>share</th>
+      <th>underrepresented</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>low</td>
+      <td>5</td>
+      <td>0.5</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <td>medium</td>
+      <td>3</td>
+      <td>0.3</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <td>high</td>
+      <td>2</td>
+      <td>0.2</td>
+      <td>False</td>
+    </tr>
+  </tbody>
+</table>
+
+
+
+
+
+
+<h2>Recommendations</h2>
+
+  <div class="rec">Class 'pedestrian' has F1=0.50 (support=10). Collect more training data and review annotation quality.</div>
+
+  <div class="rec">Performance drops under weather='fog' (F1=0.50). Add more weather='fog' samples to the training set.</div>
+
+  <div class="rec">6 safety-critical objects were missed (pedestrians/cyclists). Prioritise these for relabeling and retraining.</div>
+
+  <div class="rec">3 confident false positives detected. Mine these as hard negatives for the next training round.</div>
+
+
+<h2>High-confidence false positives</h2>
+<p class="small">Confident mistakes - good mining candidates for hard-negative training.</p>
+
+  <table>
+    <tr><th>Image</th><th>Class</th><th>Confidence</th><th>IoU</th>
+        <th>Lighting</th><th>Weather</th></tr>
+    
+      <tr><td>frame_001.jpg</td><td>car</td>
+          <td>0.82</td>
+          <td>0.0</td>
+          <td>day</td><td>clear</td></tr>
+    
+      <tr><td>frame_004.jpg</td><td>pedestrian</td>
+          <td>0.78</td>
+          <td>0.0</td>
+          <td>night</td><td>clear</td></tr>
+    
+      <tr><td>frame_006.jpg</td><td>pedestrian</td>
+          <td>0.74</td>
+          <td>0.0</td>
+          <td>day</td><td>clear</td></tr>
+    
+  </table>
+
+
+<h2>Missed safety-critical objects</h2>
+
+  <table>
+    <tr><th>Image</th><th>Class</th><th>Occluded</th><th>Lighting</th>
+        <th>Weather</th></tr>
+    
+      <tr><td>frame_002.jpg</td><td>pedestrian</td>
+          <td>True</td>
+          <td>day</td><td>rain</td></tr>
+    
+      <tr><td>frame_003.jpg</td><td>pedestrian</td>
+          <td>True</td>
+          <td>day</td><td>clear</td></tr>
+    
+      <tr><td>frame_005.jpg</td><td>pedestrian</td>
+          <td>False</td>
+          <td>day</td><td>clear</td></tr>
+    
+      <tr><td>frame_007.jpg</td><td>pedestrian</td>
+          <td>True</td>
+          <td>night</td><td>fog</td></tr>
+    
+      <tr><td>frame_007.jpg</td><td>pedestrian</td>
+          <td>True</td>
+          <td>night</td><td>fog</td></tr>
+    
+      <tr><td>frame_009.jpg</td><td>pedestrian</td>
+          <td>False</td>
+          <td>night</td><td>rain</td></tr>
+    
+  </table>
+
+
+<hr>
+<p class="small">Report produced by the Autonomous Driving Data Quality &amp;
+   Failure Analysis Platform.</p>
+</body>
+</html>

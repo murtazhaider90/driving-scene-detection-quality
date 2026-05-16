@@ -1,0 +1,370 @@
+{
+  "worst_images_by_fn": [
+    {
+      "image_id": "frame_007.jpg",
+      "tp": 1,
+      "fp": 0,
+      "fn": 2,
+      "total_errors": 2,
+      "lighting": "night",
+      "weather": "fog",
+      "occlusion": "high"
+    },
+    {
+      "image_id": "frame_009.jpg",
+      "tp": 1,
+      "fp": 0,
+      "fn": 2,
+      "total_errors": 2,
+      "lighting": "night",
+      "weather": "rain",
+      "occlusion": "medium"
+    }
+  ],
+  "worst_images_by_fp": [],
+  "low_confidence_correct": [],
+  "high_confidence_wrong": [
+    {
+      "image_id": "frame_001.jpg",
+      "class": "car",
+      "bbox": [
+        600.0,
+        300.0,
+        40.0,
+        30.0
+      ],
+      "confidence": 0.82,
+      "status": "fp",
+      "iou": 0.0,
+      "matched_gt_index": -1,
+      "lighting": "day",
+      "weather": "clear",
+      "occlusion": "low",
+      "size_bucket": "medium"
+    },
+    {
+      "image_id": "frame_004.jpg",
+      "class": "pedestrian",
+      "bbox": [
+        50.0,
+        50.0,
+        20.0,
+        60.0
+      ],
+      "confidence": 0.78,
+      "status": "fp",
+      "iou": 0.0,
+      "matched_gt_index": -1,
+      "lighting": "night",
+      "weather": "clear",
+      "occlusion": "medium",
+      "size_bucket": "medium"
+    },
+    {
+      "image_id": "frame_006.jpg",
+      "class": "pedestrian",
+      "bbox": [
+        600.0,
+        300.0,
+        25.0,
+        70.0
+      ],
+      "confidence": 0.74,
+      "status": "fp",
+      "iou": 0.0,
+      "matched_gt_index": -1,
+      "lighting": "day",
+      "weather": "clear",
+      "occlusion": "low",
+      "size_bucket": "medium"
+    }
+  ],
+  "missed_critical": [
+    {
+      "image_id": "frame_002.jpg",
+      "class": "pedestrian",
+      "bbox": [
+        420.0,
+        210.0,
+        28.0,
+        75.0
+      ],
+      "occluded": true,
+      "matched": false,
+      "lighting": "day",
+      "weather": "rain",
+      "occlusion": "high",
+      "size_bucket": "medium"
+    },
+    {
+      "image_id": "frame_003.jpg",
+      "class": "pedestrian",
+      "bbox": [
+        510.0,
+        222.0,
+        20.0,
+        58.0
+      ],
+      "occluded": true,
+      "matched": false,
+      "lighting": "day",
+      "weather": "clear",
+      "occlusion": "medium",
+      "size_bucket": "medium"
+    },
+    {
+      "image_id": "frame_005.jpg",
+      "class": "pedestrian",
+      "bbox": [
+        220.0,
+        215.0,
+        24.0,
+        72.0
+      ],
+      "occluded": false,
+      "matched": false,
+      "lighting": "day",
+      "weather": "clear",
+      "occlusion": "low",
+      "size_bucket": "medium"
+    },
+    {
+      "image_id": "frame_007.jpg",
+      "class": "pedestrian",
+      "bbox": [
+        150.0,
+        220.0,
+        26.0,
+        78.0
+      ],
+      "occluded": true,
+      "matched": false,
+      "lighting": "night",
+      "weather": "fog",
+      "occlusion": "high",
+      "size_bucket": "medium"
+    },
+    {
+      "image_id": "frame_007.jpg",
+      "class": "pedestrian",
+      "bbox": [
+        200.0,
+        225.0,
+        24.0,
+        76.0
+      ],
+      "occluded": true,
+      "matched": false,
+      "lighting": "night",
+      "weather": "fog",
+      "occlusion": "high",
+      "size_bucket": "medium"
+    },
+    {
+      "image_id": "frame_009.jpg",
+      "class": "pedestrian",
+      "bbox": [
+        420.0,
+        215.0,
+        25.0,
+        72.0
+      ],
+      "occluded": false,
+      "matched": false,
+      "lighting": "night",
+      "weather": "rain",
+      "occlusion": "medium",
+      "size_bucket": "medium"
+    }
+  ],
+  "worst_conditions": {
+    "lighting": [
+      {
+        "lighting": "night",
+        "support": 9,
+        "tp": 5,
+        "fp": 1,
+        "fn": 4,
+        "precision": 0.8333333333333334,
+        "recall": 0.5555555555555556,
+        "f1": 0.6666666666666667
+      },
+      {
+        "lighting": "day",
+        "support": 24,
+        "tp": 21,
+        "fp": 2,
+        "fn": 3,
+        "precision": 0.9130434782608695,
+        "recall": 0.875,
+        "f1": 0.8936170212765957
+      }
+    ],
+    "weather": [
+      {
+        "weather": "fog",
+        "support": 3,
+        "tp": 1,
+        "fp": 0,
+        "fn": 2,
+        "precision": 1.0,
+        "recall": 0.3333333333333333,
+        "f1": 0.5
+      },
+      {
+        "weather": "rain",
+        "support": 6,
+        "tp": 3,
+        "fp": 0,
+        "fn": 3,
+        "precision": 1.0,
+        "recall": 0.5,
+        "f1": 0.6666666666666666
+      },
+      {
+        "weather": "clear",
+        "support": 24,
+        "tp": 22,
+        "fp": 3,
+        "fn": 2,
+        "precision": 0.88,
+        "recall": 0.9166666666666666,
+        "f1": 0.8979591836734694
+      }
+    ],
+    "occlusion": [
+      {
+        "occlusion": "high",
+        "support": 6,
+        "tp": 3,
+        "fp": 0,
+        "fn": 3,
+        "precision": 1.0,
+        "recall": 0.5,
+        "f1": 0.6666666666666666
+      },
+      {
+        "occlusion": "medium",
+        "support": 10,
+        "tp": 7,
+        "fp": 1,
+        "fn": 3,
+        "precision": 0.875,
+        "recall": 0.7,
+        "f1": 0.7777777777777777
+      },
+      {
+        "occlusion": "low",
+        "support": 17,
+        "tp": 16,
+        "fp": 2,
+        "fn": 1,
+        "precision": 0.8888888888888888,
+        "recall": 0.9411764705882353,
+        "f1": 0.9142857142857143
+      }
+    ]
+  },
+  "per_image_counts": [
+    {
+      "image_id": "frame_007.jpg",
+      "tp": 1,
+      "fp": 0,
+      "fn": 2,
+      "total_errors": 2,
+      "lighting": "night",
+      "weather": "fog",
+      "occlusion": "high"
+    },
+    {
+      "image_id": "frame_009.jpg",
+      "tp": 1,
+      "fp": 0,
+      "fn": 2,
+      "total_errors": 2,
+      "lighting": "night",
+      "weather": "rain",
+      "occlusion": "medium"
+    },
+    {
+      "image_id": "frame_002.jpg",
+      "tp": 2,
+      "fp": 0,
+      "fn": 1,
+      "total_errors": 1,
+      "lighting": "day",
+      "weather": "rain",
+      "occlusion": "high"
+    },
+    {
+      "image_id": "frame_001.jpg",
+      "tp": 4,
+      "fp": 1,
+      "fn": 0,
+      "total_errors": 1,
+      "lighting": "day",
+      "weather": "clear",
+      "occlusion": "low"
+    },
+    {
+      "image_id": "frame_003.jpg",
+      "tp": 3,
+      "fp": 0,
+      "fn": 1,
+      "total_errors": 1,
+      "lighting": "day",
+      "weather": "clear",
+      "occlusion": "medium"
+    },
+    {
+      "image_id": "frame_004.jpg",
+      "tp": 3,
+      "fp": 1,
+      "fn": 0,
+      "total_errors": 1,
+      "lighting": "night",
+      "weather": "clear",
+      "occlusion": "medium"
+    },
+    {
+      "image_id": "frame_006.jpg",
+      "tp": 3,
+      "fp": 1,
+      "fn": 0,
+      "total_errors": 1,
+      "lighting": "day",
+      "weather": "clear",
+      "occlusion": "low"
+    },
+    {
+      "image_id": "frame_005.jpg",
+      "tp": 3,
+      "fp": 0,
+      "fn": 1,
+      "total_errors": 1,
+      "lighting": "day",
+      "weather": "clear",
+      "occlusion": "low"
+    },
+    {
+      "image_id": "frame_008.jpg",
+      "tp": 3,
+      "fp": 0,
+      "fn": 0,
+      "total_errors": 0,
+      "lighting": "day",
+      "weather": "clear",
+      "occlusion": "low"
+    },
+    {
+      "image_id": "frame_010.jpg",
+      "tp": 3,
+      "fp": 0,
+      "fn": 0,
+      "total_errors": 0,
+      "lighting": "day",
+      "weather": "clear",
+      "occlusion": "low"
+    }
+  ]
+}

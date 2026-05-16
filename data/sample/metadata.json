@@ -1,0 +1,12 @@
+[
+  {"image_id": "frame_001.jpg", "lighting": "day",   "weather": "clear", "occlusion": "low"},
+  {"image_id": "frame_002.jpg", "lighting": "day",   "weather": "rain",  "occlusion": "high"},
+  {"image_id": "frame_003.jpg", "lighting": "day",   "weather": "clear", "occlusion": "medium"},
+  {"image_id": "frame_004.jpg", "lighting": "night", "weather": "clear", "occlusion": "medium"},
+  {"image_id": "frame_005.jpg", "lighting": "day",   "weather": "clear", "occlusion": "low"},
+  {"image_id": "frame_006.jpg", "lighting": "day",   "weather": "clear", "occlusion": "low"},
+  {"image_id": "frame_007.jpg", "lighting": "night", "weather": "fog",   "occlusion": "high"},
+  {"image_id": "frame_008.jpg", "lighting": "day",   "weather": "clear", "occlusion": "low"},
+  {"image_id": "frame_009.jpg", "lighting": "night", "weather": "rain",  "occlusion": "medium"},
+  {"image_id": "frame_010.jpg", "lighting": "day",   "weather": "clear", "occlusion": "low"}
+]
